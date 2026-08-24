@@ -1,0 +1,79 @@
+#app {
+    width: 100vw;
+    min-height: 100vh;
+}
+
+#app.changed {
+    background: black;
+    color: white;
+    font-family: monospace;
+}
+
+#results.show { opacity: 1; }
+    #results p { margin: 2px 0; }
+
+    /* ---------- Black hole overlay ---------- */
+    #bh-overlay {
+        position: fixed;
+        inset: 0;
+        z-index: 9999;
+        background-color: #010103;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 1s ease;
+    }
+    #bh-overlay.active {
+        opacity: 1;
+        pointer-events: all;
+    }
+    #bh-overlay canvas { display: block; }
+    #bh-hud {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 40px;
+        background: radial-gradient(circle at center, transparent 30%, rgba(0,0,0,0.5) 100%);
+        z-index: 10;
+        color: #fff;
+    }
+    .bh-header { text-align: center; }
+    .bh-title {
+        font-size: 1.2rem;
+        letter-spacing: 0.8em;
+        text-transform: uppercase;
+        margin-bottom: 12px;
+        font-weight: 300;
+        opacity: 0.9;
+    }
+    .bh-status-pill {
+        display: inline-block;
+        padding: 6px 20px;
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        border-radius: 30px;
+        font-size: 0.65rem;
+        letter-spacing: 0.25em;
+        text-transform: uppercase;
+        transition: all 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .bh-hud-bottom {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 0.7rem;
+        opacity: 0.6;
+        letter-spacing: 1px;
+    }
+    .bh-metric { margin-bottom: 6px; }
+    .bh-val { color: #00f3ff; font-weight: bold; transition: color 1.5s ease; }
+    #bh-vignette {
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(circle, transparent 50%, black 150%);
+        pointer-events: none;
+        z-index: 5;
+    }
